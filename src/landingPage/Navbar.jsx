@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../images/logoBuah.png'
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <>
@@ -20,12 +21,12 @@ const Navbar = () => {
         </a>
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
         
-          <a
-            href="#"
-            className="text-sm  text-white bg-[#74C365] px-3 py-1 rounded-sm font-semibold  hover:underline"
+          <Link
+            to={'/login'}
+            className="text-sm  text-white bg-[#74C365] px-3 py-2 rounded-sm font-semibold  hover:underline"
           >
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
