@@ -75,12 +75,12 @@ const Admin = () => {
   return (
     <Dashboard page='/admin'>
        {data ?
-        <ModalPembeli judul='Edit data Pribadi' data={dataUp} onSub={updateUser} setData={setDataUp} state={{ modalAdd, setModalAdd }}></ModalPembeli>
+        <ModalPembeli judul='Edit Data Pribadi' data={dataUp} onSub={updateUser} setData={setDataUp} state={{ modalAdd, setModalAdd }}></ModalPembeli>
         : <></>
       }
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-        <thead className="text-xs text-white uppercase bg-orange-500 ">
+    <div className="relative overflow-x-auto shadow-md  overflow-hidden">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 overflow-hidden">
+        <thead className="text-xs text-[#74C365] uppercase border-2 border-[#74C365] ">
           <tr>
             <th scope="col" className="px-6 py-3">
               Nomor

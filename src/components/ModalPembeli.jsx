@@ -81,7 +81,7 @@ const ModalPembeli = ({ judul, data,setData, state,onSub }) => {
                            
                             <button
                                 onClick={onSub}
-                                className="w-[100%] text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                className="w-[100%] text-white bg-[#74C365] hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                             >
                                 submit
                             </button>

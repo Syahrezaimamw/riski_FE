@@ -6,7 +6,7 @@ const ModalMenu = ({ state, judul, data, setData, onSub }) => {
     function handleChange(e) {
         const newData = { ...data }
         newData[e.target.name] = e.target.value
-        setData({ ...newData, harga: parseInt(newData.harga) })
+        setData({ ...newData, harga: parseInt(newData.harga), stock: parseInt(newData.stock)  })
 
     }
 
@@ -22,7 +22,7 @@ const ModalMenu = ({ state, judul, data, setData, onSub }) => {
                 aria-hidden="true"
                 className={`${state.modalAdd ? 'flex' : 'hidden'} overflow-y-auto bg-black/50 overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full`}
             >
-                <div className="relative p-4 w-full max-w-md max-h-full">
+                <div className="relative p-4 w-full max-w-xl max-h-full">
                     {/* Modal content */}
                     <div className="relative bg-white rounded-lg shadow-sm">
                         {/* Modal header */}
@@ -42,66 +42,93 @@ const ModalMenu = ({ state, judul, data, setData, onSub }) => {
                         {/* Modal body */}
                         <div className="p-4 md:p-5">
                             <div className="space-y-4 " action="#">
-                                <div>
-                                    <label
-                                        htmlFor="email"
-                                        className="block mb-2 text-sm font-medium text-gray-900"
-                                    >
-                                        Masukan Nama Menu
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="nama"
-                                        value={data ? data.nama : ''}
-                                        onChange={(e) => handleChange(e)}
+                                <div className='flex w-full justify-between gap-2'>
 
-                                        id="email"
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="Masukan Nama Menu
+                                    <div className='w-[48%]'>
+                                        <label
+                                            htmlFor="email"
+                                            className="block mb-2 text-sm font-medium text-gray-900"
+                                        >
+                                            Masukan Nama Menu
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="nama"
+                                            value={data ? data.nama : ''}
+                                            onChange={(e) => handleChange(e)}
+
+                                            id="email"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                            placeholder="Masukan Nama Menu
 "
 
-                                    />
-                                </div>
-                                <div>
-                                    <label
-                                        htmlFor="password"
-                                        className="block mb-2 text-sm font-medium text-gray-900"
-                                    >
-                                        Masukan Harga
-                                    </label>
-                                    <input
-                                        type="number"
-                                        name="harga"
-                                        value={data ? data.harga : 0}
+                                        />
+                                    </div>
+                                    <div className='w-[48%]'>
+                                        <label
+                                            htmlFor="password"
+                                            className="block mb-2 text-sm font-medium text-gray-900"
+                                        >
+                                            Masukan Harga
+                                        </label>
+                                        <input
+                                            type="number"
+                                            name="harga"
+                                            value={data ? data.harga : 0}
 
-                                        onChange={(e) => handleChange(e)}
+                                            onChange={(e) => handleChange(e)}
 
-                                        id="password"
-                                        placeholder="Masukan Harga
+                                            id="password"
+                                            placeholder="Masukan Harga
 "
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required=""
-                                    />
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                            required=""
+                                        />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label
-                                        htmlFor="des"
-                                        className="block mb-2 text-sm font-medium text-gray-900"
-                                    >
-                                        Masukan Deskripsi
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id='des'
-                                        name="deskripsi"
-                                        value={data ? data.deskripsi : ''}
 
-                                        onChange={(e) => handleChange(e)}
+                                <div className='flex w-full justify-between gap-2'>
 
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="Masukan Deskripsi"
+                                    <div className='w-[48%]'>
+                                        <label
+                                            htmlFor="des"
+                                            className="block mb-2 text-sm font-medium text-gray-900"
+                                        >
+                                            Masukan Deskripsi
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id='des'
+                                            name="deskripsi"
+                                            value={data ? data.deskripsi : ''}
 
-                                    />
+                                            onChange={(e) => handleChange(e)}
+
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                            placeholder="Masukan Deskripsi"
+
+                                        />
+                                    </div>
+                                    <div className='w-[48%]'>
+                                        <label
+                                            htmlFor="stock"
+                                            className="block mb-2 text-sm font-medium text-gray-900"
+                                        >
+                                            Masukan Stock
+                                        </label>
+                                        <input
+                                            type="number"
+                                            id='stock'
+                                            name="stock"
+                                            value={data ? data.stock : ''}
+
+                                            onChange={(e) => handleChange(e)}
+
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                            placeholder="Masukan Deskripsi"
+
+                                        />
+                                    </div>
                                 </div>
                                 <div>
                                     <label
@@ -123,9 +150,10 @@ const ModalMenu = ({ state, judul, data, setData, onSub }) => {
 
                                     />
                                 </div>
+
                                 <button
                                     onClick={onSub}
-                                    className="w-[100%] text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                    className="w-[100%] text-white bg-[#74C365] hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                 >
                                     submit
                                 </button>

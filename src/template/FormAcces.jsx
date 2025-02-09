@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../images/logoPanjang.png'
+import logo from '../images/logoPanjang (2).png'
 const FormAcces = ({ children, tipe, sub, err }) => {
     return (
         <div className="bg-gray-50 font-[sans-serif]">
@@ -26,7 +26,7 @@ const FormAcces = ({ children, tipe, sub, err }) => {
                                 <button
                                     onClick={sub}
                                     type="button"
-                                    className="w-full cursor-pointer py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-orange-600 hover:bg-orange-700 focus:outline-none"
+                                    className="w-full cursor-pointer py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-[#74C365] hover:bg-green-700 focus:outline-none"
                                 >  {tipe === 'login' ? 'Sign In' : 'Register'}</button>
 
 
@@ -41,12 +41,12 @@ const FormAcces = ({ children, tipe, sub, err }) => {
                                 {tipe === 'login' ?
                                     <Link to='/register'
                                         href="javascript:void(0);"
-                                        className="text-orange-500 hover:underline ml-1 whitespace-nowrap font-semibold"
+                                        className="text-green-500 hover:underline ml-1 whitespace-nowrap font-semibold"
                                     >Register Here</Link> :
                                     <Link
                                         to='/login'
                                         href="javascript:void(0);"
-                                        className="text-orange-500 hover:underline ml-1 whitespace-nowrap font-semibold"
+                                        className="text-green-500 hover:underline ml-1 whitespace-nowrap font-semibold"
                                     >Sign In Here</Link>
                                 }
                             </p>

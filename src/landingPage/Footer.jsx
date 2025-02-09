@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/logoRamen.png'
+import logo from '../images/logoBuah.png'
 const Footer = () => {
   return (
     <footer className="bg-white mt-20 border-t-2 border-gray-200">

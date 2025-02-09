@@ -1,23 +1,30 @@
-import React from 'react'
-import logo from '../images/logoRamen.png'
+import React, { useEffect } from 'react'
+import logo from '../images/logoBuah.png'
 
-const Main1 = ({setModalAdd,setModalLog}) => {
+const Main1 = ({ setModalAdd, setModalLog }) => {
+  
   return (
-    <div className='max-w-7xl flex  justify-center mx-auto'>
-        <div className='h-[80vh] pe-5 flex flex-col justify-center gap-5  pt-30 w-[45%]'>
-            <h1 className='text-6xl font-semibold'>Ramenku</h1>
-            <h2 className='w-[93%] text-lg font-semibold text-gray-700'>Nikmati ramen dengan kuah gurih, mie kenyal, dan topping premium yang dibuat dari bahan berkualitas. Rasakan cita rasa autentik yang memanjakan lidah!</h2>
-            <p>📍 Lokasi: Pamulang, BSD, Bintaro, dan sekitarnya</p>
-            <div className='flex gap-3'>
+    <div className="w-full  background-image grayscale-20 bg-cover bg-center bg-no-repeat">
+      <div className='w-full h-full bg-black/50'>
 
-            <button className='bg-white w-fit px-8 py-2 border-2 border-orange-500 rounded-md font-semibold text-orange-500' onClick={()=>setModalAdd(true)}>Daftar</button>
-            <button onClick={()=>setModalLog(true)} className='text-white w-fit px-8 py-2 border-2 border-orange-500 rounded-md font-semibold bg-orange-500'>login</button>
+        <div className='max-w-7xl flex  justify-center mx-auto '>
+          <div className='h-[88vh] pe-5 flex items-center justify-center gap-5   w-full'>
+            <div className='w-[70%] space-y-4 text-white text-center'>
+
+              <h1 className='text-6xl font-semibold'>Zumito Fruits</h1>
+              <h2 className='w-[93%] text-lg font-semibold '>FreshFruit adalah toko buah yang menyediakan berbagai macam buah segar, berkualitas, dan sehat. Kami menawarkan pilihan buah lokal dan impor dengan harga terjangkau, memastikan kepuasan pelanggan dengan kesegaran terbaik setiap hari</h2>
+              <p className='w-[]'> Pamulang, BSD, Bintaro, dan sekitarnya</p>
+              <div className='flex gap-3 w-full justify-center'>
+
+                <button className='bg-white w-fit px-8 py-2 border-2 border-[#74C365] rounded-md font-semibold text-[#74C365]' onClick={() => setModalAdd(true)}>Daftar</button>
+                <button onClick={() => setModalLog(true)} className='text-white w-fit px-8 py-2 border-2 border-[#74C365] rounded-md font-semibold bg-[#74C365]'>login</button>
+              </div>
             </div>
+          </div>
+
         </div>
-        <div className='h-[80vh]  flex items-center justify-end pt-30 w-[45%]'>
-            <img src={logo} alt="" />
-        </div>
-      
+
+      </div>
     </div>
   )
 }

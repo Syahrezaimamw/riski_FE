@@ -23,9 +23,9 @@ const Transaksi = () => {
    
    
     <div className=' flex w-[100%] gap-12 flex-wrap '>
-    <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="relative w-full overflow-x-auto shadow-md ">
         <table className="w-full text-sm text-left  rtl:text-right text-gray-500 ">
-          <thead className="text-xs text-white uppercase bg-orange-500 ">
+          <thead className="text-xs text-[#74C365] uppercase border-2 border-[#74C365]">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Nomor
@@ -63,7 +63,7 @@ const Transaksi = () => {
                   </th>
                   <td className="px-6 py-4">{e.Pembeli.nama}</td>
                   <td className="px-6 py-4">{e.tanggal_pembelian}</td>
-                  <td className="px-6 py-4">{e.Cart.Menu.nama}</td>
+                  <td className="px-6 py-4">{e.Cart.Buah.nama}</td>
                   <td className="px-6 py-4">{e.Cart.jumlah_barang}</td>
                   <td className="px-6 py-4">{convertToRp(e.Cart.total_harga)}</td>
                   

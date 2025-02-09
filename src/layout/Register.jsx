@@ -32,7 +32,6 @@ const Register = () => {
       setData(newData)
   
     }
-    console.log(data)
   return (
     <FormAcces tipe={'register'} sub={handleRegister} err={err}>
     <div className='space-y-4'>

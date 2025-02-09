@@ -33,16 +33,18 @@ const ModalProfile = ({ profile, setProfile, decode }) => {
                                             {decode.email}
                                         </p>
                                         <p className="mt-3 text-base leading-relaxed text-center text-gray-700">
-                                            I am a fullstack software developer with ReactJS for frontend
-                                            and NodeJS for backend
+                                        Pastikan setiap pelanggan mendapatkan buah segar berkualitas dengan layanan terbaik.
                                         </p>
                                         <div className="w-full mt-6">
 
                                             <a
-                                                onClick={() => localStorage.removeItem('token')}
+                                                onClick={() =>{
+                                                    window.location.href='/login'
+                                                 localStorage.removeItem('token')
+                                                }}
                                                 className="flex text-center items-center justify-center w-full pt-4 pr-10 pb-4 pl-10 text-base text-white cursor-pointer
-                font-medium  bg-orange-600 rounded-xl transition duration-500 ease-in-out transform
-                hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                font-medium  bg-[#74C365] rounded-xl transition duration-500 ease-in-out transform
+                hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                             >
                                                 close
                                             </a>

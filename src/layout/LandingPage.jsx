@@ -67,11 +67,12 @@ const LandingPage = () => {
     const [dataTr,setDataTr]=useState({
         jumlah_barang:0,
         total_harga:0,
-        MenuId:0
+        BuahId:0
     })
     const [modalBeli,setModalBeli]=useState(false)
     const [hargaMenu,setHargaMenu]=useState(0)
     const [idMenu,setIdMenu]=useState(0)
+    const [idStock,setStock]=useState(0)
 
     // console.log(dataTr)
   
@@ -80,22 +81,28 @@ const LandingPage = () => {
         if (!dataku) {
             alert('silahkan login atau daftar')
         }else{
+            console.log({msg:e})
+            setStock(e.stock)
             setIdMenu(e.id)
             setHargaMenu(e.harga)
             setModalBeli(true)
         }
 
     }
-
+// console.log(idStock)
     //! add cart
     const [idCart,setIdCart]=useState(0)
     const [totalHarga,setTotalHarga]=useState(0)
     const [modalAprove,setModalAprove]=useState(false)
 
     const handleAddCart = async (e) => {
+        if(dataTr.jumlah_barang  > idStock){
+            setModalBeli(false)
+           return alert('jumlah barang melebihi stock')
+        }
         
         try {
-            const response = await axios.post('http://localhost:3100/cart/create', {...dataTr,MenuId:idMenu});
+            const response = await axios.post('http://localhost:3100/cart/create', {...dataTr,BuahId:idMenu});
             console.log('Login berhasil:', response.data.data);
             setIdCart(response.data.data.id)
             setTotalHarga(response.data.data.total_harga)
@@ -106,9 +113,10 @@ const LandingPage = () => {
             console.error('Login gagal:' + error.response.data.msg);
         }
     };
+    console.log(dataTr)
 
     //! pop up
-    console.log(idCart)
+    // console.log(idCart)
     
     async function handlePesan(){
         let id = localStorage.getItem("dataku")
@@ -118,7 +126,7 @@ const LandingPage = () => {
             const response = await axios.post('http://localhost:3100/transaksi/create', {total_harga:totalHarga,status:true,tanggal_pembelian:new Date(),CartId:idCart,PembeliId:parseId.id});
             console.log('Login berhasil:', response.data.data);
          
-            // window.location.href = '/'
+            window.location.href = '/'
         } catch (error) {
             console.error('Login gagal:' + error.response.data.msg);
         }
@@ -150,11 +158,17 @@ const LandingPage = () => {
                                 />
                             </div>
                             <div className="p-4">
+                                <div className='w-full flex justify-between'>
+
                                 <h6 className="mb-2 text-slate-800 text-xl font-semibold">
                                     {e.nama}
                                 </h6>
+                                <h6 className="mb-2 text-slate-800 text-xl font-semibold">
+                                    {e.stock}
+                                </h6>
+                                </div>
                                 <p className="text-slate-600 leading-normal font-light">
-                                    {e.deskripsi}
+                                    {e.deskripsi.substring(0,120)}...
 
                                 </p>
                             </div>
