@@ -49,7 +49,7 @@ const Dashboard = ({ children, page }) => {
     <div>
       <>
         <ModalProfile profile={profile} decode={decode} setProfile={setProfile}></ModalProfile>
-        <nav className="bg-white  fixed w-full z-0 top-0 shadow-none start-0 border-b-2 border-[#74C365]">
+        <nav className="  fixed w-full z-0 top-0 shadow-none start-0 border-b-2 border-[#74C365]">
           <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4 py-3">
             <div></div>
             <button

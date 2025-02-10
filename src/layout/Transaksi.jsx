@@ -22,7 +22,7 @@ const Transaksi = () => {
     <Dashboard page='/transaksi'>
    
    
-    <div className=' flex w-[100%] gap-12 flex-wrap '>
+    <div className=' flex w-[100%] -z-99 gap-12 flex-wrap '>
     <div className="relative w-full overflow-x-auto shadow-md ">
         <table className="w-full text-sm text-left  rtl:text-right text-gray-500 ">
           <thead className="text-xs text-[#74C365] uppercase border-2 border-[#74C365]">

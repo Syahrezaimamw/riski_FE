@@ -75,13 +75,13 @@ const LandingPage = () => {
     const [idStock,setStock]=useState(0)
 
     // console.log(dataTr)
-  
+  const [dataB,setDataB]=useState({})
     const dataku = localStorage.getItem('dataku')
     function handleBeli(e) {
         if (!dataku) {
             alert('silahkan login atau daftar')
         }else{
-            console.log({msg:e})
+            setDataB(e)
             setStock(e.stock)
             setIdMenu(e.id)
             setHargaMenu(e.harga)
@@ -94,13 +94,15 @@ const LandingPage = () => {
     const [idCart,setIdCart]=useState(0)
     const [totalHarga,setTotalHarga]=useState(0)
     const [modalAprove,setModalAprove]=useState(false)
+    
 
     const handleAddCart = async (e) => {
         if(dataTr.jumlah_barang  > idStock){
             setModalBeli(false)
            return alert('jumlah barang melebihi stock')
         }
-        
+        console.log(idMenu)
+        console.log(idStock)
         try {
             const response = await axios.post('http://localhost:3100/cart/create', {...dataTr,BuahId:idMenu});
             console.log('Login berhasil:', response.data.data);
@@ -112,8 +114,10 @@ const LandingPage = () => {
         } catch (error) {
             console.error('Login gagal:' + error.response.data.msg);
         }
+     
     };
-    console.log(dataTr)
+
+    console.log(dataB)
 
     //! pop up
     // console.log(idCart)
@@ -125,8 +129,18 @@ const LandingPage = () => {
         try {
             const response = await axios.post('http://localhost:3100/transaksi/create', {total_harga:totalHarga,status:true,tanggal_pembelian:new Date(),CartId:idCart,PembeliId:parseId.id});
             console.log('Login berhasil:', response.data.data);
+
+            try{
+                console.log({...dataB,stock:dataB.stock - dataTr.jumlah_barang})
+
+                const responseBuah = await axios.put('http://localhost:3100/menu/update/'+dataB.id,{...dataB,stock:dataB.stock - dataTr.jumlah_barang}) 
+                window.location.href = '/'
+            }catch(err){
+                console.error('erro' + err.response.data.msg);
+
+            }
+
          
-            window.location.href = '/'
         } catch (error) {
             console.error('Login gagal:' + error.response.data.msg);
         }
